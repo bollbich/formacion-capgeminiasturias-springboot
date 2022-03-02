@@ -27,7 +27,7 @@ public class Cliente {
 	@Column(name="apellido", nullable = false, length=50)
 	private String apellido;
 	
-	@Column(name="email", nullable = false, length=50)
+	@Column(name="email", nullable = false, unique = true, length=50)
 	private String email;
 	
 	@Column(name="telefono", nullable = false, length=50)
