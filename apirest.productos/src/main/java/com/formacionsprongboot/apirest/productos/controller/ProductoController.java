@@ -32,6 +32,7 @@ import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.formacionsprongboot.apirest.productos.entity.Producto;
+import com.formacionsprongboot.apirest.productos.entity.Region;
 import com.formacionsprongboot.apirest.productos.service.ProductoService;
 
 
@@ -307,6 +308,13 @@ public class ProductoController {
 		cabecera.add(HttpHeaders.CONTENT_DISPOSITION,"attachment;filename=\" "+recurso.getFilename()+"\"");
 		
 		return new ResponseEntity<Resource>(recurso,cabecera,HttpStatus.OK);
+		
+	}
+	
+	@GetMapping("/Producto/Regiones")
+	public List<Region> ListarRegiones(){
+		
+		return servicio.findAllRegions();
 		
 	}
 }
