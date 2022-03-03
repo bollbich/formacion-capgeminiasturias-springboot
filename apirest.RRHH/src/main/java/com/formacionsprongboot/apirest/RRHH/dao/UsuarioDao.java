@@ -7,5 +7,7 @@ import com.formacionsprongboot.apirest.RRHH.entity.Usuario;
 
 @Repository
 public interface UsuarioDao extends CrudRepository<Usuario, Long> {
+	
+	public Usuario findByUsuario(String user);
 
 }

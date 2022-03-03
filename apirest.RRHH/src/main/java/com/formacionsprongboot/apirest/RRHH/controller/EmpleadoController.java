@@ -28,7 +28,7 @@ public class EmpleadoController {
 	@Autowired
 	private EmpleadoService servicio;
 	
-	@GetMapping({"/Empleados", "/todos"})
+	@GetMapping({"/Empleados"})
 	public List<Empleado> index()
 	{
 		return servicio.ListarTodosEmpleados();

@@ -28,10 +28,63 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioService servicio;
 	
-	@GetMapping({"/Usuarios", "/todos"})
+	@GetMapping({"/Usuarios"})
 	public List<Usuario> index()
 	{
 		return servicio.ListarTodosUsuarios();
+	}
+	
+	@PostMapping("/Usuario/login")
+	public ResponseEntity<?> LoginUsuario(@RequestBody Usuario usuario)
+	{
+		Usuario usuarioActual = null;
+		
+		Map<String, Object> response = new HashMap<>();
+		
+		boolean passwordFail = true;
+		
+		try {
+			
+			usuarioActual = servicio.findByUsuario(usuario.getUsuario());
+			
+			if(usuarioActual!=null)
+			{
+				if(usuario.getPassword().equals(usuarioActual.getPassword()))
+				{
+					passwordFail = false;
+				}
+			}
+					
+			
+			
+		} catch (DataAccessException e) {
+
+			response.put("mensaje", "Error al realizar la consulta");
+			response.put("error", e.getMessage().concat(": ".concat(e.getMostSpecificCause().getMessage())));
+		
+			return new ResponseEntity<Map<String,Object>>(response,HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+		if(usuarioActual == null)
+		{
+			response.put("mensaje", "El usuario ".concat(usuario.getUsuario().concat(" no existe en la base de datos")));
+			return new ResponseEntity<Map<String,Object>>(response,HttpStatus.NOT_FOUND);
+		
+		}
+		else
+		{
+			if(!passwordFail)
+			{
+				response.put("mensaje", "Acceso concedido al usuario: "+usuario.getUsuario());
+				return new ResponseEntity<Map<String,Object>>(response,HttpStatus.OK);
+			}
+			else
+			{
+				response.put("mensaje", "Acceso denegado password incorrecto para el usuario: "+usuario.getUsuario());
+				return new ResponseEntity<Map<String,Object>>(response,HttpStatus.BAD_REQUEST);
+			}
+			
+		}		
 	}
 	
 	@GetMapping("/Usuario/buscarUsuario/{id}")

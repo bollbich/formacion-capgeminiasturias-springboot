@@ -28,7 +28,7 @@ public class DepartamentoController {
 	@Autowired
 	private DepartamentoService servicio;
 	
-	@GetMapping({"/Departamentos", "/todos"})
+	@GetMapping({"/Departamentos"})
 	public List<Departamento> index()
 	{
 		return servicio.ListarTodosDepartamentos();

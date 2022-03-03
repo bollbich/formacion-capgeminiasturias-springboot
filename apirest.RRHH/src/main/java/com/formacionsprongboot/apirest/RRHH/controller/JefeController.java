@@ -28,7 +28,7 @@ public class JefeController {
 	@Autowired
 	private JefeService servicio;
 	
-	@GetMapping({"/Jefes", "/todos"})
+	@GetMapping({"/Jefes"})
 	public List<Jefe> index()
 	{
 		return servicio.ListarTodosJefes();

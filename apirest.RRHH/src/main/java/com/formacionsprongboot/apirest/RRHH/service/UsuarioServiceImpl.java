@@ -39,4 +39,10 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 	}
 
+	@Override
+	public Usuario findByUsuario(String user) {
+
+		return AccesoDb.findByUsuario(user);
+	}
+
 }
