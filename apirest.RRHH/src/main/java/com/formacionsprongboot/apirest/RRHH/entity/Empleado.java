@@ -28,11 +28,11 @@ public class Empleado implements Serializable{
 	@Column(name="nombre", nullable = false, length=50)
 	private String nombre;
 	
-	@Column(name="salario", nullable = false, length=50)
-	private String salario;
+	@Column(name="salario", nullable = false)
+	private double salario;
 	
-	@Column(name="telefono", nullable = false, length=50)
-	private String telefono;
+	@Column(name="telefono", nullable = false)
+	private int telefono;
 	
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="CodDepartamento")
@@ -65,19 +65,19 @@ public class Empleado implements Serializable{
 		this.nombre = nombre;
 	}
 
-	public String getSalario() {
+	public double getSalario() {
 		return salario;
 	}
 
-	public void setSalario(String salario) {
+	public void setSalario(double salario) {
 		this.salario = salario;
 	}
 
-	public String getTelefono() {
+	public int getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(String telefono) {
+	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
 
