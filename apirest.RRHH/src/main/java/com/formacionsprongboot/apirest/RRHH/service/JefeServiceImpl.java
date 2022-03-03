@@ -12,7 +12,7 @@ import com.formacionsprongboot.apirest.RRHH.entity.Jefe;
 public class JefeServiceImpl implements JefeService {
 
 	@Autowired
-	JefeDao AccesoDb;
+	private JefeDao AccesoDb;
 	
 	@Override
 	public List<Jefe> ListarTodosJefes() {
