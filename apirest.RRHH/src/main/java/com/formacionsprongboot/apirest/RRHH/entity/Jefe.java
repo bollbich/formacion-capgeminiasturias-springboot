@@ -41,4 +41,52 @@ public class Jefe implements Serializable{
 	private Departamento departamento;	
 	
 	private static final long serialVersionUID = 1L;
+
+	public Long getCodJefe() {
+		return CodJefe;
+	}
+
+	public void setCodJefe(Long codJefe) {
+		CodJefe = codJefe;
+	}
+
+	public String getDNI() {
+		return DNI;
+	}
+
+	public void setDNI(String dNI) {
+		DNI = dNI;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getSalario() {
+		return salario;
+	}
+
+	public void setSalario(String salario) {
+		this.salario = salario;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public Departamento getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
+	}
 }

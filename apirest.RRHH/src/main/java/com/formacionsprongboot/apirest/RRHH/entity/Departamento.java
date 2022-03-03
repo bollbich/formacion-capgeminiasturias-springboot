@@ -24,4 +24,30 @@ public class Departamento implements Serializable{
 	
 	@Column(name="ubicacion", nullable = false, length=50)
 	private String ubicacion;
+
+	public Long getCodDepartamento() {
+		return CodDepartamento;
+	}
+
+	public void setCodDepartamento(Long codDepartamento) {
+		CodDepartamento = codDepartamento;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getUbicacion() {
+		return ubicacion;
+	}
+
+	public void setUbicacion(String ubicacion) {
+		this.ubicacion = ubicacion;
+	}
+	
+	
 }
