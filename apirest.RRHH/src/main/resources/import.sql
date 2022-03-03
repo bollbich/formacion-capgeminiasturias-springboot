@@ -9,3 +9,8 @@ INSERT INTO empleados (dni, nombre, salario, telefono, cod_departamento) VALUES 
 
 INSERT INTO jefes (dni, nombre, salario, telefono, cod_departamento) VALUES ('25537849-J', 'Olegario', 20000, 467839504, 2);
 INSERT INTO jefes (dni, nombre, salario, telefono, cod_departamento) VALUES ('12453674-S', 'Amanda', 35000, 564783931, 1);
+
+
+INSERT INTO usuarios (password, usuario) VALUES ('hola', 'Alandia');
+INSERT INTO usuarios (password, usuario) VALUES ('adios', 'Hernando');
+INSERT INTO usuarios (password, usuario) VALUES ('pass', 'Albino');
