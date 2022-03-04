@@ -201,7 +201,9 @@ public class UsuarioController {
 		try {
 			usuario = servicio.FinById(id);
 			
-			 servicio.Delete(id);
+			usuario.setEnabled(false);
+			
+			servicio.save(usuario);
 			 
 		} catch (DataAccessException e) {
 
