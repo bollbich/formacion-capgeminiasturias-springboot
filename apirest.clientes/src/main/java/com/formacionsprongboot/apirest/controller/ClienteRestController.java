@@ -48,7 +48,7 @@ public class ClienteRestController {
 		Map<String, Object> response = new HashMap<>();
 		
 		try {
-			servicio.FinById(id);
+			cliente = servicio.FinById(id);
 		} catch (DataAccessException e) {
 
 			response.put("mensaje", "Error al realizar la consulta");

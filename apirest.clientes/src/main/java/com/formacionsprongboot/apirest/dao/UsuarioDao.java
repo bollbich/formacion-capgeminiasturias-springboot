@@ -1,10 +1,9 @@
-package com.formacionsprongboot.apirest.RRHH.dao;
+package com.formacionsprongboot.apirest.dao;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.formacionsprongboot.apirest.RRHH.entity.Usuario;
-
+import com.formacionsprongboot.apirest.entity.Usuario;
 
 @Repository
 public interface UsuarioDao extends CrudRepository<Usuario, Long>{

@@ -1,4 +1,4 @@
-package com.formacionsprongboot.apirest.RRHH.entity;
+package com.formacionsprongboot.apirest.entity;
 
 import java.io.Serializable;
 import java.util.List;

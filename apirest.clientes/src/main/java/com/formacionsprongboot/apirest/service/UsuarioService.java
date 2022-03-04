@@ -1,4 +1,4 @@
-package com.formacionsprongboot.apirest.RRHH.service;
+package com.formacionsprongboot.apirest.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,47 +15,16 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.formacionsprongboot.apirest.RRHH.dao.UsuarioDao;
-import com.formacionsprongboot.apirest.RRHH.entity.Usuario;
+import com.formacionsprongboot.apirest.dao.UsuarioDao;
+import com.formacionsprongboot.apirest.entity.Usuario;
 
 @Service
-public class UsuarioServiceImpl implements UsuarioService, UserDetailsService {
+public class UsuarioService implements UserDetailsService {
 
-	private Logger logger = LoggerFactory.getLogger(UsuarioServiceImpl.class);
+	private Logger logger = LoggerFactory.getLogger(UsuarioService.class);
 	
 	@Autowired
 	private UsuarioDao AccesoDb;
-	
-	@Override
-	public List<Usuario> ListarTodosUsuarios() {
- 
-		return (List<Usuario>) AccesoDb.findAll();
-	}
-
-	@Override
-	public Usuario FinById(Long id) {
-		
-		return AccesoDb.findById(id).orElse(null);
-	}
-
-	@Override
-	public Usuario save(Usuario usuario) {
-		 
-		return AccesoDb.save(usuario);
-	}
-
-	@Override
-	public void Delete(Long id) {
-
-		AccesoDb.deleteById(id);
-
-	}
-
-	@Override
-	public Usuario findByUsuario(String user) {
-
-		return AccesoDb.findByUsername(user);
-	}
 	
 	@Override
 	@Transactional(readOnly=true)

@@ -45,7 +45,7 @@ public class UsuarioController {
 		
 		try {
 			
-			usuarioActual = servicio.findByUsuario(usuario.getUsuario());
+			usuarioActual = servicio.findByUsuario(usuario.getUsername());
 			
 			if(usuarioActual!=null)
 			{
@@ -67,7 +67,7 @@ public class UsuarioController {
 
 		if(usuarioActual == null)
 		{
-			response.put("mensaje", "El usuario ".concat(usuario.getUsuario().concat(" no existe en la base de datos")));
+			response.put("mensaje", "El usuario ".concat(usuario.getUsername().concat(" no existe en la base de datos")));
 			return new ResponseEntity<Map<String,Object>>(response,HttpStatus.NOT_FOUND);
 		
 		}
@@ -75,12 +75,12 @@ public class UsuarioController {
 		{
 			if(!passwordFail)
 			{
-				response.put("mensaje", "Acceso concedido al usuario: "+usuario.getUsuario());
+				response.put("mensaje", "Acceso concedido al usuario: "+usuario.getUsername());
 				return new ResponseEntity<Map<String,Object>>(response,HttpStatus.OK);
 			}
 			else
 			{
-				response.put("mensaje", "Acceso denegado password incorrecto para el usuario: "+usuario.getUsuario());
+				response.put("mensaje", "Acceso denegado password incorrecto para el usuario: "+usuario.getUsername());
 				return new ResponseEntity<Map<String,Object>>(response,HttpStatus.BAD_REQUEST);
 			}
 			
@@ -154,7 +154,7 @@ public class UsuarioController {
 		
 		try {
 			usuarioUpdate.setPassword(usuario.getPassword());
-			usuarioUpdate.setUsuario(usuario.getUsuario());
+			usuarioUpdate.setUsername(usuario.getUsername());
 				
 			servicio.save(usuarioUpdate);				
 		}
